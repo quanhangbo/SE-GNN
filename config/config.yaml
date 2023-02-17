@@ -11,6 +11,7 @@ warmup_epoch: 5
 
 # project directory
 # 云平台/gemini/code
+# 本机：C:\Users\admin\PycharmProjects\SE-GNN
 project_dir: /gemini/code
 # dataset directory
 dataset_dir: ${project_dir}/data/dataset
