@@ -4,7 +4,7 @@ defaults:
 
 dataset_list: [FB15k_237, WN18RR]
 # 云平台
-device: 1 # gpu 0/1/2..
+device: 0 # gpu 0/1/2..
 max_no_improve: 50  # early stopping epoch num
 cpu_worker_num: 10  # thread num when loading data
 warmup_epoch: 5
