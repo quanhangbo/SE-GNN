@@ -23,7 +23,7 @@ class SE_GNN(nn.Module):
         # gnn layer
         self.kg_n_layer = self.cfg.kg_layer
         # relation SE layer 修改处，去除关系层次的聚合
-        # self.edge_layers = nn.ModuleList([EdgeLayer(h_dim) for _ in range(self.kg_n_layer)])
+        self.edge_layers = nn.ModuleList([EdgeLayer(h_dim) for _ in range(self.kg_n_layer)])
         # entity SE layer
         self.node_layers = nn.ModuleList([NodeLayer(h_dim) for _ in range(self.kg_n_layer)])
         # triple SE layer
@@ -79,7 +79,7 @@ class SE_GNN(nn.Module):
         ent_emb = self.ent_emb
         rel_emb_list = []
         # 修改处2，去除边关系层次
-        """
+        # 原
         for edge_layer, node_layer, comp_layer, rel_emb in zip(self.edge_layers, self.node_layers, self.comp_layers, self.rel_embs):
             ent_emb, rel_emb = self.ent_drop(ent_emb), self.rel_drop(rel_emb)
             edge_ent_emb = edge_layer(kg, ent_emb, rel_emb)
@@ -87,6 +87,7 @@ class SE_GNN(nn.Module):
             comp_ent_emb = comp_layer(kg, ent_emb, rel_emb)
             ent_emb = ent_emb + edge_ent_emb + node_ent_emb + comp_ent_emb
             rel_emb_list.append(rel_emb)
+
         """
         for node_layer, comp_layer, rel_emb in zip( self.node_layers, self.comp_layers, self.rel_embs):
             ent_emb, rel_emb = self.ent_drop(ent_emb), self.rel_drop(rel_emb)
@@ -96,7 +97,7 @@ class SE_GNN(nn.Module):
             # ent_emb = ent_emb + edge_ent_emb + node_ent_emb + comp_ent_emb
             ent_emb = ent_emb +  node_ent_emb + comp_ent_emb
             rel_emb_list.append(rel_emb)
-
+            """
         if self.cfg.pred_rel_w:
             pred_rel_emb = torch.cat(rel_emb_list, dim=1)
             pred_rel_emb = pred_rel_emb.mm(self.rel_w)
