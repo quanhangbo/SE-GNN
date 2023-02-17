@@ -485,7 +485,7 @@ def draw_wn_baselines():
     logging.info('drawing end and fig saved')
 
 
-@hydra.main(config_path=join('..', 'config'), config_name="config")
+@hydra.main(version_base=None,config_path=join('..', 'config'), config_name="config")
 def main(cfg: DictConfig):
     utils.set_global_config(cfg)
 

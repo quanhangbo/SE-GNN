@@ -75,7 +75,7 @@ def format_metrics(name, h_metric, t_metric):
     return msg_h, msg_t, msg_avg
 
 
-@hydra.main(config_path=join('..', 'config'), config_name="config")
+@hydra.main(version_base=None,config_path=join('..', 'config'), config_name="config")
 def main(config: DictConfig):
     utils.set_global_config(config)
     cfg = utils.get_global_config()
