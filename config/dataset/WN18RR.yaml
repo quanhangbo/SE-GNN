@@ -2,7 +2,7 @@
 
 dataset: WN18RR
 
-epoch: 800
+epoch: 600
 batch_size: 1024
 learning_rate: 1.5e-3
 h_dim: 200
