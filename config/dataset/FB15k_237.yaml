@@ -4,7 +4,7 @@ dataset: FB15k_237
 
 epoch: 600
 # 云平台
-batch_size: 16
+batch_size: 2048
 learning_rate: 3.5e-4
 h_dim: 450
 pred_rel_w: False
