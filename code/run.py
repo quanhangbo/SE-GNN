@@ -58,6 +58,7 @@ def get_linear_scheduler_with_warmup(optimizer, warmup_steps: int, max_steps: in
 
 
 def format_metrics(name, h_metric, t_metric):
+    #加入tensboard
     msg_h = name + ' (head) - MRR: {:5.4f}, MR: {:7.2f}, H@1: {:4.3f}, H@3: {:4.3f}, H@10: {:4.3f}'
     msg_t = name + ' (tail) - MRR: {:5.4f}, MR: {:7.2f}, H@1: {:4.3f}, H@3: {:4.3f}, H@10: {:4.3f}'
     msg_avg = name + ' (avg) - MRR: {:5.4f}, MR: {:7.2f}, H@1: {:4.3f}, H@3: {:4.3f}, H@10: {:4.3f}'

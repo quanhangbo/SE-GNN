@@ -1,6 +1,6 @@
 import sys
 # add module search path
-sys.path.append('code')
+sys.path.append('../code')
 
 import hydra
 from collections import defaultdict
@@ -205,6 +205,7 @@ class Metrics:
         plt.xticks(offset_inds, mhrt_ndata, size='large', rotation=0)
 
         plt.subplots_adjust(wspace=0.2)  # distance of sub-figs
+        print(fig_save_path+"已保存")
         plt.savefig(fig_save_path, format='svg')
 
     def plot_se2rank_2bar(self, model_name: list, rank_load_paths: list, fig_save_path, se_metric_path):
@@ -325,6 +326,7 @@ class Metrics:
         # plt.xticks(offset_inds, mhrt_ndata, size='large', rotation=0)
 
         plt.subplots_adjust(wspace=0.25)  # distance of sub-figs
+        print(fig_save_path+"已保存")
         plt.savefig(fig_save_path, format='svg')
 
     @staticmethod
@@ -485,7 +487,7 @@ def draw_wn_baselines():
     logging.info('drawing end and fig saved')
 
 
-@hydra.main(version_base=None,config_path=join('..', 'config'), config_name="config")
+@hydra.main(config_path=join('..', 'config'), config_name="config")
 def main(cfg: DictConfig):
     utils.set_global_config(cfg)
 

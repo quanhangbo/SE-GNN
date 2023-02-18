@@ -3,16 +3,17 @@ defaults:
   - _self_
 
 dataset_list: [FB15k_237, WN18RR]
-# 云平台
-device: 0 # gpu 0/1/2..
+
+## 云平台
+device: 0  # gpu 0/1/2..
 max_no_improve: 50  # early stopping epoch num
 cpu_worker_num: 10  # thread num when loading data
 warmup_epoch: 5
 
 # project directory
-# 云平台/gemini/code
-# 本机：C:\Users\admin\PycharmProjects\SE-GNN
-project_dir: /gemini/code
+# 云平台
+# project_dir: /gemini/code
+project_dir: C:\Users\admin\Desktop\论文\知识推理\code\SE-GNN-main\SE-GNN-main
 # dataset directory
 dataset_dir: ${project_dir}/data/dataset
 # output directory for each dataset
